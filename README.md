@@ -1,4 +1,4 @@
-# **Bold text** 👗 StylistIQ – AI-Powered Outfit Recommendation Web App
+# ** 👗 StylistIQ – AI-Powered Outfit Recommendation Web App **
 
 StylistIQ is a full-stack outfit recommendation platform that helps users receive personalized outfit suggestions based on wardrobe items, color matching, weather conditions, and preferences.
 
