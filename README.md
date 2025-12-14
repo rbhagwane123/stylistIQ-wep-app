@@ -36,24 +36,39 @@ This project is being developed following enterprise-level best practices for ar
 ## ✨ Key Features (Planned)
 
 #### 🔐 User authentication & authorization (JWT)
+#### 👚 E-Wardrobe management (upload & manage outfits)
+#### 🎯 AI-based outfit recommendations
+#### 🌦 Weather-based outfit suggestions
+####  🎨 Color and pattern matching
+####  📊 Recommendation history
+####  🛡 Secure REST APIs
+####  📱 Responsive UI (desktop & tablet)
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-### 👚 E-Wardrobe management (upload & manage outfits)
+## 🛠 Setup Instructions
 
+### Frontend (Angular)
+```
+cd frontend
+npm install
+ng serve
+````
 
-### 🎯 AI-based outfit recommendations
+### Backend (Spring Boot – Coming Soon)
+```
+cd backend
+mvn spring-boot:run
+```
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-### 🌦 Weather-based outfit suggestions
+## 👨‍💻 Author
 
+### Rupesh Kumar Bhagwane
+#### Full-Stack Developer | Java | Angular | Spring Boot
 
-### 🎨 Color and pattern matching
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
-### 📊 Recommendation history
-
-
-### 🛡 Secure REST APIs
-
-
-### 📱 Responsive UI (desktop & tablet)
+## 📄 License
+This project is for learning and portfolio purposes.
