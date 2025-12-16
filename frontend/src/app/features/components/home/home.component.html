@@ -1,0 +1,30 @@
+<section
+  class="relative w-full h-[75vh] bg-cover bg-center flex items-center justify-center herImg"
+  [ngStyle]="{ 'background-image': 'url(' + heroImage + ')' }">
+
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-black/50"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 text-center max-w-3xl px-4">
+    <h1 class="text-white text-4xl md:text-5xl lg:text-6xl font-normal mb-6"
+        style="font-family: 'Belleza', sans-serif;">
+      Unlock Your Style Potential
+    </h1>
+
+    <p class="text-white text-xl mb-8"
+       style="font-family: 'PT Sans', sans-serif;">
+      Let our AI stylist help you create the perfect outfit from your wardrobe
+      for any occasion.
+    </p>
+
+    <button
+      class="inline-flex items-center gap-2 bg-[#FF7F50] hover:bg-[#ff6a3d]
+             text-white px-6 py-3 rounded-lg text-base font-medium transition">
+      Get Started
+      <span class="text-lg">→</span>
+    </button>
+  </div>
+</section>
+
+<app-feature></app-feature>

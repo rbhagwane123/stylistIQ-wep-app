@@ -1,0 +1,57 @@
+<nav
+  class="fixed top-0 left-0 w-full h-16 z-50 transition-all duration-300
+         bg-white/70 border-b border-gray-200 backdrop-blur-md shadow"
+  [ngClass]="{ 'bg-white/90 shadow-md': isScrolled() }">
+
+  <div class="max-w-7xl mx-auto h-full px-6 flex items-center justify-between">
+
+    <!-- Left -->
+    <div class="flex items-center gap-10">
+      <span class="text-3xl font-normal tracking-wide"
+            style="font-family: 'Belleza', sans-serif;">
+        StylistIQ
+      </span>
+
+      <ul class="hidden md:flex gap-6 text-sm font-medium"
+          style="font-family: 'PT Sans', sans-serif;">
+        <li class="cursor-pointer hover:text-[#FF7F50]">Home</li>
+        <li class="cursor-pointer hover:text-[#FF7F50]">About</li>
+        <li class="cursor-pointer hover:text-[#FF7F50]">Features</li>
+      </ul>
+    </div>
+
+    <!-- Right -->
+    <div class="hidden md:flex items-center gap-4">
+      <button class="text-sm hover:text-[#FF7F50]"
+              style="font-family: 'PT Sans', sans-serif;" (click)="openLoginPage()">
+        Login
+      </button>
+
+      <button
+        class="bg-[#FF7F50] text-white px-4 py-2 rounded-md text-sm font-medium hover:opacity-90 transition"
+        style="font-family: 'PT Sans', sans-serif;">
+        Register
+      </button>
+    </div>
+
+    <!-- Mobile -->
+    <button class="md:hidden text-2xl" (click)="toggleMobileMenu()">
+      ☰
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div *ngIf="mobileMenuOpen()"
+       class="md:hidden bg-white shadow-lg px-6 py-4 space-y-4">
+    <div>Home</div>
+    <div>About</div>
+    <div>Features</div>
+
+    <div class="pt-2 border-t flex gap-4">
+      <button>Login</button>
+      <button class="bg-[#FF7F50] text-white px-4 py-2 rounded-md">
+        Register
+      </button>
+    </div>
+  </div>
+</nav>
