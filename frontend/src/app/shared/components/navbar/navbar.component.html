@@ -23,13 +23,13 @@
     <!-- Right -->
     <div class="hidden md:flex items-center gap-4">
       <button class="text-sm hover:text-[#FF7F50]"
-              style="font-family: 'PT Sans', sans-serif;" (click)="openLoginPage()">
+              style="font-family: 'PT Sans', sans-serif;" (click)="openPage('login')">
         Login
       </button>
 
       <button
         class="bg-[#FF7F50] text-white px-4 py-2 rounded-md text-sm font-medium hover:opacity-90 transition"
-        style="font-family: 'PT Sans', sans-serif;">
+        style="font-family: 'PT Sans', sans-serif;" (click)="openPage('register')">
         Register
       </button>
     </div>

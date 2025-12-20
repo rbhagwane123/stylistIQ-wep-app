@@ -16,7 +16,13 @@ export class AppComponent {
   constructor(private router: Router) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        this.isAuthPage = event.url.includes('login');
+        if (event.url.includes('register')) {
+          this.isAuthPage = true;
+        } else if (event.url.includes('login')) {
+          this.isAuthPage = true;
+        } else {
+          this.isAuthPage = false;
+        }
       }
     });
   }

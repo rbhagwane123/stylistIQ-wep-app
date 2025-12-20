@@ -1,33 +1,13 @@
-@import "tailwindcss";
-/* @import '@angular/material/prebuilt-themes/indigo-pink.css'; */
-
-
-body {
-  font-family: 'PT Sans', sans-serif;
-  background-color: #F5F5F5;
-}
-
-html, body {
-  height: 100%;
-  margin: 0;
-}
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-
 /* ===== Custom Login Toast ===== */
 .login-toast {
-  --mdc-snackbar-container-color: #ffffffca;
+  --mdc-snackbar-container-color: #ffffff;
   --mdc-snackbar-supporting-text-color: #000000;
   --mdc-snackbar-action-color: #6b7280;
 }
 
 /* Container */
 .login-toast .mdc-snackbar__surface {
-  background-color: #ffffffd6 !important;
+  background-color: #ffffff !important;
   border-radius: 14px !important;
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18) !important;
   padding: 16px 20px !important;

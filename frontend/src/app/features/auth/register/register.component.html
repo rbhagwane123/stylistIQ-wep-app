@@ -1,1 +1,92 @@
-<p>register works!</p>
+<div class="min-h-screen flex items-center justify-center bg-gray-100 overflow-hidden px-4">
+    <!-- Center column -->
+    <div class="w-full max-w-md text-center">
+        <h1 class="text-3xl mb-6" style="font-family: 'Belleza', sans-serif;">
+            StylistIQ
+        </h1>
+        <!-- Card -->
+        <div class="bg-white rounded-xl ring-1 ring-black/5 shadow-xl p-8 animate-fade-in">
+
+            <h2 class="text-2xl font-semibold mb-2" style="font-family:'Belleza','sans-serif';">
+                Create an Account
+            </h2>
+
+            <p class="text-sm text-gray-500 mb-6">
+                Join StylistIQ and revolutionize your wardrobe.
+            </p>
+
+            <!-- FORM -->
+            <form class="text-left" [formGroup]="registerForm" (ngSubmit)="onRegister()">
+                <!-- Full Name -->
+                <label class="block text-sm font-normal mb-1" style="font-family: 'PT Sans', sans-serif;">
+                    Full Name
+                </label>
+                <input type="text" placeholder="John Doe" formControlName="fullName" class="w-full mb-2 px-4 py-2 rounded-md border border-gray-200 bg-gray-50
+                 focus:outline-none focus:ring-2 focus:ring-[#FF7F50]" required />
+                <span class="text-red-500 text-sm font-normal" style="font-family: 'PT Sans', sans-serif;"
+                    *ngIf="registerForm.get('fullName')?.invalid && registerForm.get('fullName')?.touched">
+                    Full Name is required.
+                </span>
+
+                <!-- Email -->
+                <label class="block text-sm font-normal mb-1 mt-4" style="font-family: 'PT Sans', sans-serif;">
+                    Email
+                </label>
+                <input type="email" placeholder="you@example.com" formControlName="email" class="w-full mb-2 px-4 py-2 rounded-md border border-gray-200 bg-gray-50
+                 focus:outline-none focus:ring-2 focus:ring-[#FF7F50]" required email />
+                <span class="text-red-500 text-sm font-normal" style="font-family: 'PT Sans', sans-serif;"
+                    *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
+                    Please enter a valid email address.
+                </span>
+
+                <!-- Password -->
+                <label class="block text-sm font-normal mb-1 mt-4" style="font-family: 'PT Sans', sans-serif;">
+                    Password
+                </label>
+                <input type="password" placeholder="••••••••" formControlName="password" class="w-full mb-2 px-4 py-2 rounded-md border border-gray-200 bg-gray-50
+                 focus:outline-none focus:ring-2 focus:ring-[#FF7F50]" required password />
+                <span class="text-red-500 text-sm font-normal" style="font-family: 'PT Sans', sans-serif;"
+                    *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">
+                    Password is required.
+                </span>
+
+                <!-- Confirm Password -->
+                <label class="block text-sm font-normal mb-1 mt-4" style="font-family: 'PT Sans', sans-serif;">
+                    Confirm Password
+                </label>
+                <input type="password" placeholder="••••••••" formControlName="confirmPassword" class="w-full mb-2 px-4 py-2 rounded-md border border-gray-200 bg-gray-50
+                 focus:outline-none focus:ring-2 focus:ring-[#FF7F50]" required password />
+                <span class="text-red-500 text-sm font-normal" style="font-family: 'PT Sans', sans-serif;"
+                    *ngIf="registerForm.hasError('passwordMismatch') && registerForm.get('confirmPassword')?.touched">
+                    Passwords do not match.
+                </span>
+
+                <!-- Login Button -->
+                <button class="bg-[#FF7F50] mt-6 w-full text-white px-6 py-3 rounded-lg font-medium
+    transition-all duration-150 ease-out
+    hover:bg-[#ff6a3c]
+    active:scale-[0.97]
+    active:shadow-inner
+    focus:outline-none cursor-pointer">
+                    Sign Up
+                </button>
+            </form>
+
+            <!-- Forgot -->
+            <div class="text-center mt-4">
+                <a routerLink="/forgot-password" class="cursor-pointer text-sm text-[#FF7F50] hover:underline">
+                    Forgot your password?
+                </a>
+            </div>
+        </div>
+
+        <!-- Sign up (BELOW card, centered) -->
+        <p class="text-sm text-gray-500 mt-6">
+            Already have an account?
+            <a routerLink="/login" class="text-[#FF7F50] hover:underline cursor-pointer">
+                Login
+            </a>
+        </p>
+
+    </div>
+</div>

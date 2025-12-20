@@ -27,7 +27,13 @@ export class NavbarComponent {
     this.mobileMenuOpen.update((v) => !v);
   }
 
-  openLoginPage() {
-    this.router.navigate(['/login']);
+  openPage(page: string) {
+    if (page === 'register') {
+      this.router.navigate(['/register']);
+      return;
+    } else if (page === 'login') {
+      this.router.navigate(['/login']);
+      return;
+    }
   }
 }
