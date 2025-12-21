@@ -1,0 +1,54 @@
+<div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <!-- Logo -->
+        <div class="logo">
+            <h1>StylistIQ</h1>
+        </div>
+
+        <!-- Menu -->
+        <nav class="menu">
+            <a routerLink="dashboard" routerLinkActive="active">Dashboard</a>
+            <a routerLink="wardrobe" routerLinkActive="active">E-Wardrobe</a>
+            <a routerLink="recommendations" routerLinkActive="active">
+                Recommendations
+            </a>
+            <a routerLink="weather" routerLinkActive="active">Weather</a>
+        </nav>
+
+        <!-- User Section -->
+        <div class="user-section">
+            <!-- Dropdown -->
+            <div class="user-dropdown" *ngIf="showMenu">
+                <button class="dropdown-item">
+                    <span class="icon">👤</span> Profile
+                </button>
+                <button class="dropdown-item logout">
+                    <span class="icon">↩</span> Log out
+                </button>
+            </div>
+
+            <!-- User Info -->
+            <div class="user-info">
+                <div class="avatar">N</div>
+
+                <div class="details">
+                    <div class="name">Alex Johnson</div>
+                    <div class="email">alex.j&#65312;example.com</div>
+                </div>
+
+                <button class="toggle-btn" (click)="toggleMenu()">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Right Content -->
+    <main class="content">
+        <router-outlet></router-outlet>
+    </main>
+</div>

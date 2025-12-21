@@ -1,0 +1,63 @@
+<div class="recommendations-page">
+    <!-- Header -->
+    <div class="page-header">
+        <h1 class="font-normal text-3xl" style="font-family: 'Belleza', 'sans-serif';">Outfit Recommendations</h1>
+        <p class="text-base font-normal">Discover new looks with our AI-powered stylist.</p>
+    </div>
+
+    <div class="content-grid">
+        <!-- LEFT: Recommendation Tool -->
+        <div class="tool-card">
+            <h2 class="font-semibold text-2xl" style="font-family: 'Belleza', 'sans-serif';">Outfit Recommendation Tool
+            </h2>
+
+            <!-- Tabs -->
+            <div class="tabs">
+                <button class="tab active font-normal text-sm" (click)="activeTab = 'text'">
+                    From Description
+                </button>
+                <button class="tab font-normal text-sm" (click)="activeTab = 'image'">
+                    From Image
+                </button>
+            </div>
+
+            <!-- From Description -->
+            <div *ngIf="activeTab === 'text'" class="tab-content">
+                <label class="text-sm">Describe the vibe, occasion, or item you want to wear.</label>
+
+                <textarea
+                    placeholder="e.g., A casual summer day in the city or something to wear with my black boots"></textarea>
+
+                <button class="primary-btn text-sm font-normal">
+                    Get Suggestions
+                </button>
+            </div>
+
+            <!-- From Image -->
+            <div *ngIf="activeTab === 'image'" class="tab-content">
+                <label class="text-sm font-normal">
+                    Upload an image of a clothing item or an inspiration photo.
+                </label>
+
+                <input type="file" />
+
+                <button class="primary-btn">
+                    Upload and Suggest
+                </button>
+            </div>
+        </div>
+
+        <!-- RIGHT: Suggestions Area -->
+        <div class="suggestions-card">
+            <h2 class="text-2xl" style="font-family: 'Belleza', 'sans-serif';">Your AI-Powered Suggestions</h2>
+
+            <div class="empty-state">
+                <div class="icon">✨</div>
+                <h3>Your suggestions will appear here</h3>
+                <p>
+                    Use the tool on the left to generate new outfit ideas.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

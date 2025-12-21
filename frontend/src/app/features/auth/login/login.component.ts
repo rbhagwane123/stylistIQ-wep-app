@@ -6,7 +6,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { LoginToastComponent } from './login-toast/login-toast.component';
 
@@ -18,8 +18,14 @@ import { LoginToastComponent } from './login-toast/login-toast.component';
 })
 export class LoginComponent {
   loginForm!: FormGroup;
+  private router: Router = new Router();
 
-  constructor(private formBuilder: FormBuilder, private snackBar: MatSnackBar) {
+  constructor(
+    router: Router,
+    private formBuilder: FormBuilder,
+    private snackBar: MatSnackBar
+  ) {
+    this.router = router;
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]],
@@ -30,11 +36,12 @@ export class LoginComponent {
     if (this.loginForm.valid) {
       console.log('Login req data, ', this.loginForm.value);
       this.snackBar.openFromComponent(LoginToastComponent, {
-        duration: 4000,
+        duration: 3000,
         horizontalPosition: 'right',
         verticalPosition: 'bottom',
         panelClass: ['login-toast'],
       });
+      this.router.navigate(['/dashboard']);
     } else {
       this.loginForm.markAllAsTouched();
       return;

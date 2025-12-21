@@ -1,24 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { LoginComponent } from './features/auth/login/login.component';
 @Component({
   selector: 'app-root',
   imports: [NavbarComponent, FooterComponent, RouterOutlet, CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'stylistiq-ui';
-  isAuthPage = false;
+  isAuthPage = true;
+  routesUrl: string[] = ['/login', '/register', '/dashboard', '/wardrobe', '/recommendations', '/weather'];
+
+
 
   constructor(private router: Router) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        if (event.url.includes('register')) {
-          this.isAuthPage = true;
-        } else if (event.url.includes('login')) {
+        if (this.routesUrl.some((route) => event.url.includes(route))) {
           this.isAuthPage = true;
         } else {
           this.isAuthPage = false;
@@ -26,4 +28,8 @@ export class AppComponent {
       }
     });
   }
+  ngOnInit(): void {
+    
+  }
 }
+  

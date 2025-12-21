@@ -1,11 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, HostListener, signal } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { routes } from '../../../app.routes';
 
 @Component({
   selector: 'app-navbar',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
 })

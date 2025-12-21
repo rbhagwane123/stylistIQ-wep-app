@@ -1,0 +1,159 @@
+<div class="p-8">
+
+    <!-- Header -->
+    <div class="flex items-center justify-between mb-6">
+        <div>
+            <h1 class="text-3xl font-normal">E-Wardrobe</h1>
+            <p class="text-gray-500 mt-1 font-normal text-base">
+                Manage your digital closet. Add, edit, or remove items.
+            </p>
+        </div>
+
+        <button class="flex items-center gap-2 bg-[#FF7F50] text-white px-5 py-2.5 rounded-lg
+             hover:bg-[#ff6a3c] transition cursor-pointer shadow-sm">
+            <span class="text-xl">+</span>
+            Upload Outfit
+        </button>
+    </div>
+
+    <!-- Filters -->
+    <div class="flex gap-4 mb-8">
+        <select class="border rounded-lg px-4 py-2 text-sm focus:outline-none bg-white">
+            <option>Filter by Type</option>
+            <option>Outerwear</option>
+            <option>Bottom</option>
+            <option>Shoes</option>
+        </select>
+
+        <select class="border rounded-lg px-4 py-2 text-sm focus:outline-none bg-white">
+            <option>Filter by Color</option>
+            <option>Beige</option>
+            <option>Black</option>
+            <option>Blue</option>
+            <option>Multicolor</option>
+        </select>
+    </div>
+
+    <!-- Wardrobe Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+
+        <!-- Card -->
+        <div class="relative group bg-white rounded-xl shadow-sm hover:shadow-lg
+             transition overflow-hidden cursor-pointer">
+
+            <!-- Image -->
+            <img src="https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb" class="h-64 w-full object-cover transition-transform duration-500
+               group-hover:scale-105" alt="Beige Trench Coat" />
+
+            <!-- Hover Menu -->
+            <div class="absolute top-4 right-4 bg-white rounded-lg shadow-lg
+               opacity-0 group-hover:opacity-100 transition
+               scale-95 group-hover:scale-100">
+
+                <button class="flex items-center gap-2 px-4 py-2 text-sm hover:bg-gray-100 w-full">
+                    ✏️ Edit
+                </button>
+
+                <button class="flex items-center gap-2 px-4 py-2 text-sm text-red-500
+                 hover:bg-red-50 w-full">
+                    🗑 Delete
+                </button>
+            </div>
+
+            <!-- Content -->
+            <div class="p-4">
+                <h3 class="font-semibold">Beige Trench Coat</h3>
+                <p class="text-sm text-gray-500">Outerwear • Beige</p>
+            </div>
+        </div>
+
+        <!-- Repeat Cards -->
+
+        <div
+            class="relative group bg-white rounded-xl shadow-sm hover:shadow-lg transition overflow-hidden cursor-pointer">
+            <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f"
+                class="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                alt="Classic Black Dress" />
+
+            <div class="absolute top-4 right-4 bg-white rounded-lg shadow-lg
+                  opacity-0 group-hover:opacity-100 transition">
+                <button class="flex items-center gap-2 px-4 py-2 text-sm hover:bg-gray-100 w-full">
+                    ✏️ Edit
+                </button>
+                <button class="flex items-center gap-2 px-4 py-2 text-sm text-red-500 hover:bg-red-50 w-full">
+                    🗑 Delete
+                </button>
+            </div>
+
+            <div class="p-4">
+                <h3 class="font-semibold">Classic Black Dress</h3>
+                <p class="text-sm text-gray-500">Outerwear • Black</p>
+            </div>
+        </div>
+
+        <div
+            class="relative group bg-white rounded-xl shadow-sm hover:shadow-lg transition overflow-hidden cursor-pointer">
+            <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f"
+                class="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                alt="Denim Jacket" />
+
+            <div class="absolute top-4 right-4 bg-white rounded-lg shadow-lg
+                  opacity-0 group-hover:opacity-100 transition">
+                <button class="flex items-center gap-2 px-4 py-2 text-sm hover:bg-gray-100 w-full">
+                    ✏️ Edit
+                </button>
+                <button class="flex items-center gap-2 px-4 py-2 text-sm text-red-500 hover:bg-red-50 w-full">
+                    🗑 Delete
+                </button>
+            </div>
+            <div class="p-4">
+                <h3 class="font-semibold">Denim Jacket</h3>
+                <p class="text-sm text-gray-500">Outerwear • Blue</p>
+            </div>
+        </div>
+
+        <div
+            class="relative group bg-white rounded-xl shadow-sm hover:shadow-lg transition overflow-hidden cursor-pointer">
+            <img src="https://images.unsplash.com/photo-1542060749-766f69a3b088"
+                class="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                alt="White Sneakers" />
+
+            <div class="absolute top-4 right-4 bg-white rounded-lg shadow-lg
+                  opacity-0 group-hover:opacity-100 transition">
+                <button class="flex items-center gap-2 px-4 py-2 text-sm hover:bg-gray-100 w-full">
+                    ✏️ Edit
+                </button>
+                <button class="flex items-center gap-2 px-4 py-2 text-sm text-red-500 hover:bg-red-50 w-full">
+                    🗑 Delete
+                </button>
+            </div>
+
+            <div class="p-4">
+                <h3 class="font-semibold">White Sneakers</h3>
+                <p class="text-sm text-gray-500">Shoes • White</p>
+            </div>
+        </div>
+
+        <div
+            class="relative group bg-white rounded-xl shadow-sm hover:shadow-lg transition overflow-hidden cursor-pointer">
+            <img src="https://images.unsplash.com/photo-1516826957135-700dedea698c"
+                class="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                alt="Floral Skirt" />
+
+            <div class="absolute top-4 right-4 bg-white rounded-lg shadow-lg
+                  opacity-0 group-hover:opacity-100 transition">
+                <button class="flex items-center gap-2 px-4 py-2 text-sm hover:bg-gray-100 w-full">
+                    ✏️ Edit
+                </button>
+                <button class="flex items-center gap-2 px-4 py-2 text-sm text-red-500 hover:bg-red-50 w-full">
+                    🗑 Delete
+                </button>
+            </div>
+            <div class="p-4">
+                <h3 class="font-semibold">Floral Skirt</h3>
+                <p class="text-sm text-gray-500">Bottom • Multicolor</p>
+            </div>
+        </div>
+
+    </div>
+</div>

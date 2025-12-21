@@ -1,0 +1,45 @@
+<div class="weather-page">
+    <!-- Header -->
+    <div class="page-header">
+        <h3 class="text-3xl font-normal" style="font-family: 'Belleza', 'sans-serif';">Weather-Based Suggestions</h3>
+        <p style="font-family: 'Roboto','Helvetica Neue', 'sans-serif';">Outfits recommended for today's weather.</p>
+    </div>
+
+    <!-- Weather Info Card -->
+    <div class="weather-info-card">
+        <div class="weather-left">
+            <div class="weather-icon">⛅</div>
+            <div>
+                <h2 class="text-3xl font-normal" style="font-family: 'Belleza', 'sans-serif';">Partly Cloudy</h2>
+                <p class="text-base font-normal">It's a great day for layers. Light jacket recommended.</p>
+            </div>
+        </div>
+
+        <div class="weather-right">
+            <div class="temperature font-bold text-5xl">21°C</div>
+            <div class="location text-base font-normal">San Francisco, CA</div>
+        </div>
+    </div>
+
+    <!-- Outfit Cards -->
+    <div class="outfit-grid">
+        <div class="outfit-card" *ngFor="let outfit of outfits">
+            <img [src]="outfit.image" alt="Outfit image" />
+
+            <div class="outfit-content">
+                <h3>{{ outfit.title }}</h3>
+
+                <div class="outfit-footer">
+                    <div class="match-score">
+                        <span>Match Score</span>
+                        <strong>{{ outfit.score }}%</strong>
+                    </div>
+
+                    <button class="save-btn">
+                        💾 Save
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
