@@ -15,8 +15,6 @@ export class AppComponent implements OnInit {
   isAuthPage = true;
   routesUrl: string[] = ['/login', '/register', '/dashboard', '/wardrobe', '/recommendations', '/weather'];
 
-
-
   constructor(private router: Router) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {

@@ -21,10 +21,10 @@
                 <label class="block text-sm font-normal mb-1" style="font-family: 'PT Sans', sans-serif;">
                     Email
                 </label>
-                <input type="email" placeholder="you@example.com" formControlName="email" class="w-full mb-2 px-4 py-2 rounded-md border border-gray-200 bg-gray-50
-                 focus:outline-none focus:ring-2 focus:ring-[#FF7F50]" required email />
+                <input type="email" placeholder="you@example.com" formControlName="username" class="w-full mb-2 px-4 py-2 rounded-md border border-gray-200 bg-gray-50
+                 focus:outline-none focus:ring-2 focus:ring-[#FF7F50]" required username />
                 <span class="text-red-500 text-sm font-normal" style="font-family: 'PT Sans', sans-serif;"
-                    *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+                    *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.touched">
                     Please enter a valid email address.
                 </span>
                 <!-- Password -->

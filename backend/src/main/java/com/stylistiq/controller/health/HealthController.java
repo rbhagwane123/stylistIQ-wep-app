@@ -8,6 +8,6 @@ public class HealthController {
 
 	@GetMapping("/api/health")
 	public String health() {
-		return "StylistIQ API is UP";
+		return "StylistIQ API is UP and working!...";
 	}
 }

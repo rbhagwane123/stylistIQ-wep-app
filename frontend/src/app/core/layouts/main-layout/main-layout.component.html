@@ -8,7 +8,7 @@
 
         <!-- Menu -->
         <nav class="menu">
-            <a routerLink="dashboard" routerLinkActive="active">Dashboard</a>
+            <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
             <a routerLink="wardrobe" routerLinkActive="active">E-Wardrobe</a>
             <a routerLink="recommendations" routerLinkActive="active">
                 Recommendations
@@ -23,7 +23,7 @@
                 <button class="dropdown-item">
                     <span class="icon">👤</span> Profile
                 </button>
-                <button class="dropdown-item logout">
+                <button class="dropdown-item logout" (click)="logOut()">
                     <span class="icon">↩</span> Log out
                 </button>
             </div>
@@ -33,8 +33,8 @@
                 <div class="avatar">N</div>
 
                 <div class="details">
-                    <div class="name">Alex Johnson</div>
-                    <div class="email">alex.j&#65312;example.com</div>
+                    <div class="name">{{user?.fullName}}</div>
+                    <div class="email">{{user?.username}}</div>
                 </div>
 
                 <button class="toggle-btn" (click)="toggleMenu()">

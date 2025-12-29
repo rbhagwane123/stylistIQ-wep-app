@@ -9,47 +9,66 @@ import {
 import { Router, RouterModule } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { LoginToastComponent } from './login-toast/login-toast.component';
+import { AuthService } from '../../../core/services/auth/auth.service';
 
 @Component({
   selector: 'app-login',
   imports: [ReactiveFormsModule, CommonModule, RouterModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
+  providers: [AuthService],
 })
 export class LoginComponent {
   loginForm!: FormGroup;
-  private router: Router = new Router();
 
   constructor(
-    router: Router,
+    private router: Router,
     private formBuilder: FormBuilder,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private authService: AuthService
   ) {
-    this.router = router;
     this.loginForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
+      username: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]],
     });
   }
 
   onLogin() {
-    if (this.loginForm.valid) {
-      console.log('Login req data, ', this.loginForm.value);
-      this.snackBar.openFromComponent(LoginToastComponent, {
-        duration: 3000,
-        horizontalPosition: 'right',
-        verticalPosition: 'bottom',
-        panelClass: ['login-toast'],
-      });
-      this.router.navigate(['/dashboard']);
-    } else {
+    if (!this.loginForm.valid) {
       this.loginForm.markAllAsTouched();
       return;
     }
+    this.authService.login(this.loginForm.value).subscribe({
+      next: (response) => {
+        console.log('Login successful:', response);
+        this.snackBar.openFromComponent(LoginToastComponent, {
+          duration: 3000,
+          horizontalPosition: 'right',
+          verticalPosition: 'bottom',
+          panelClass: ['login-toast'],
+        });
+        this.router.navigate(['/dashboard']);
+      },
+      error: (error) => {
+        localStorage.removeItem('jwt');
+        this.snackBar.open(
+          'Login failed. Please check your credentials.',
+          'Close',
+          {
+            duration: 3000,
+            horizontalPosition: 'right',
+            verticalPosition: 'bottom',
+            panelClass: ['login-toast'],
+          }
+        );
+        this.loginForm.markAllAsTouched();
+        return;
+      },
+    });
   }
 
   get email() {
-    return this.loginForm.get('email');
+    return this.loginForm.get('username');
   }
 
   get password() {

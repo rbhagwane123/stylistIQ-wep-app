@@ -7,7 +7,8 @@ import {
   Validators,
 } from '@angular/forms';
 import { passwordMatchValidator } from '../../../core/validators/password-match.validator';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { AuthService } from '../../../core/services/auth/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -18,11 +19,15 @@ import { RouterModule } from '@angular/router';
 export class RegisterComponent {
   registerForm!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private authService: AuthService,
+    private router: Router
+  ) {
     this.registerForm = this.formBuilder.group(
       {
         fullName: ['', [Validators.required, Validators.minLength(3)]],
-        email: ['', [Validators.required, Validators.email]],
+        username: ['', [Validators.required, Validators.email]],
         password: ['', [Validators.required, Validators.minLength(8)]],
         confirmPassword: ['', [Validators.required, Validators.minLength(8)]],
       },
@@ -31,10 +36,11 @@ export class RegisterComponent {
       }
     );
   }
-
   onRegister() {
     if (this.registerForm.valid) {
-      console.log('Login req data, ', this.registerForm.value);
+      console.log('Register req data, ', this.registerForm.value);
+      this.authService.register(this.registerForm.value);
+      this.router.navigate(['/dashboard']);
     } else {
       this.registerForm.markAllAsTouched();
       return;
@@ -42,7 +48,7 @@ export class RegisterComponent {
   }
 
   get email() {
-    return this.registerForm.get('email');
+    return this.registerForm.get('username');
   }
   get password() {
     return this.registerForm.get('password');
