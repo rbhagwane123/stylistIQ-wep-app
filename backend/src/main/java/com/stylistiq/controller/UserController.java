@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.stylistiq.exception.UserException;
 import com.stylistiq.model.entity.User;
-import com.stylistiq.service.UserServiceImplementation;
+import com.stylistiq.service.impl.UserServiceImplementation;
 
 @RestController
 @RequestMapping("/api/users")
@@ -23,9 +23,9 @@ public class UserController {
 	@GetMapping("/profile")
 	public ResponseEntity<User> getUserProfileByJwt(@RequestHeader("Authorization") String jwt) throws UserException {
 		User user = userService.findUserProfileByJwt(jwt);
-		if(user == null)
+		if (user == null)
 			return new ResponseEntity<User>(user, HttpStatus.NOT_FOUND);
-		
+
 		return new ResponseEntity<User>(user, HttpStatus.OK);
 	}
 

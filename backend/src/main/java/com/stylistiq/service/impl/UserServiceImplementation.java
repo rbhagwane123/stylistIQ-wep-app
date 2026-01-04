@@ -1,4 +1,4 @@
-package com.stylistiq.service;
+package com.stylistiq.service.impl;
 
 import java.util.Optional;
 
@@ -9,6 +9,7 @@ import com.stylistiq.config.security.JwtTokenProvider;
 import com.stylistiq.exception.UserException;
 import com.stylistiq.model.entity.User;
 import com.stylistiq.repository.UserRepository;
+import com.stylistiq.service.UserService;
 
 @Service
 public class UserServiceImplementation implements UserService {
