@@ -6,3 +6,5 @@ export const AUTH_API_URL = `${BASE_API_URL}/auth`;
 export const BG_REMOVE_API_URL = `https://api.remove.bg/v1.0/removebg`;
 
 export const CLOTHES_UPLOAD_API_URL = `${BASE_API_URL}/api/clothes`;
+
+export const WARDROBE_API_URL = `${BASE_API_URL}/api/wardrobe`;

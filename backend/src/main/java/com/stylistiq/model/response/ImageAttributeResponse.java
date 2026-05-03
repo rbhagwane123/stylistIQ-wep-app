@@ -2,14 +2,35 @@ package com.stylistiq.model.response;
 
 public class ImageAttributeResponse {
 
+	private String primaryColor;
+	private String secondaryColor;
 	private String fabricType;
 	private Long confidenceScore;
 	private String detectedBy;
 
-	public ImageAttributeResponse(String fabricType, Long confidenceScore, String detectedBy) {
+	public ImageAttributeResponse(String primaryColor, String secondaryColor, String fabricType, Long confidenceScore,
+			String detectedBy) {
+		this.primaryColor = primaryColor;
+		this.secondaryColor = secondaryColor;
 		this.fabricType = fabricType;
 		this.confidenceScore = confidenceScore;
 		this.detectedBy = detectedBy;
+	}
+
+	public String getPrimaryColor() {
+		return primaryColor;
+	}
+
+	public void setPrimaryColor(String primaryColor) {
+		this.primaryColor = primaryColor;
+	}
+
+	public String getSecondaryColor() {
+		return secondaryColor;
+	}
+
+	public void setSecondaryColor(String secondaryColor) {
+		this.secondaryColor = secondaryColor;
 	}
 
 	public String getFabricType() {
@@ -37,6 +58,5 @@ public class ImageAttributeResponse {
 	}
 
 	// getters
-	
-	
+
 }

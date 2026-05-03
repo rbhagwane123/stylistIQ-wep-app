@@ -62,6 +62,8 @@ public class ClothesServiceImpl implements ClothesService {
 		// 1️⃣ Image Attribute
 		ImageAttribute atribute = new ImageAttribute();
 		atribute.setConfidenceScor((long) 98.2363);
+		atribute.setPrimaryColor("Accent Blue");
+		atribute.setSecondaryColor("Beige");;
 		atribute.setDetectedBy("AI");
 		atribute.setClothImage(clothImage);
 		atribute.setFabricType("denim cotton");

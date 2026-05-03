@@ -7,6 +7,9 @@ import java.util.List;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GeneratorType;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -35,9 +38,11 @@ public class ClothImage {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "cloth_id", nullable = false)
+	@JsonIgnore
 	private Cloth cloth;
 
 	@OneToMany(mappedBy = "clothImage", cascade = CascadeType.ALL, orphanRemoval = true)
+	@JsonIgnore
 	private List<ImageAttribute> imgAttribute = new ArrayList<>();
 
 	public ClothImage() {

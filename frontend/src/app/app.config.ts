@@ -1,6 +1,10 @@
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
-import { provideAnimations } from '@angular/platform-browser/animations';
+import {
+  BrowserAnimationsModule,
+  provideAnimations,
+} from '@angular/platform-browser/animations';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 import { routes } from './app.routes';
 import { AuthService } from './core/services/auth/auth.service';
@@ -14,7 +18,10 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideAnimations(),
-    provideHttpClient(withInterceptors([errorInterceptorInterceptor, userInterceptor])),
+    provideHttpClient(
+      withInterceptors([errorInterceptorInterceptor, userInterceptor])
+    ),
     provideStore(),
+    BrowserAnimationsModule,
   ],
 };

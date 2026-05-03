@@ -9,7 +9,6 @@ import com.stylistiq.model.response.*;
 
 import com.stylistiq.model.entity.*;
 
-
 @Component
 public class WardrobeMapper {
 
@@ -17,10 +16,13 @@ public class WardrobeMapper {
 			List<ImageAttribute> attributes) {
 
 		// Group attributes by imageId
+		System.out.println("Attributed data : " + attributes.get(0).getPrimaryColor() + attributes);
 		Map<Long, List<ImageAttributeResponse>> attributeMap = attributes.stream()
-				.collect(Collectors.groupingBy(a -> a.getClothImage().getImageId(), Collectors.mapping(
-						a -> new ImageAttributeResponse(a.getFabricType(), a.getConfidenceScor(), a.getDetectedBy()),
-						Collectors.toList())));
+				.collect(Collectors.groupingBy(a -> a.getClothImage().getImageId(),
+						Collectors.mapping(
+								a -> new ImageAttributeResponse(a.getPrimaryColor(), a.getSecondaryColor(),
+										a.getFabricType(), a.getConfidenceScor(), a.getDetectedBy()),
+								Collectors.toList())));
 
 		// Group images by clothId
 		Map<Long, List<ImageResponse>> imageMap = images.stream()

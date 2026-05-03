@@ -47,7 +47,7 @@ export class LoginComponent {
           verticalPosition: 'bottom',
           panelClass: ['login-toast'],
         });
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/main-layout/dashboard']);
       },
       error: (error) => {
         localStorage.removeItem('jwt');
