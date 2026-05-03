@@ -12,37 +12,36 @@ export const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'register', component: RegisterComponent },
   {
-    path: 'dashboard',
+    path: 'main-layout',
     component: MainLayoutComponent,
     canActivate: [authGuard],
     children: [
       {
-        path: '',
+        path: 'dashboard',
         loadComponent: () =>
-          import('./features/dashboard/dashboard.component').then(
-            (m) => m.DashboardComponent
+          import('./features/components/dashboard/dashboard.component').then(
+            (m) => m.DashboardComponent,
           ),
-          
       },
       {
         path: 'wardrobe',
         loadComponent: () =>
-          import('./features/wardrobe/e-wardrobe/e-wardrobe.component').then(
-            (m) => m.EWardrobeComponent
+          import('./features/components/wardrobe/e-wardrobe/e-wardrobe.component').then(
+            (m) => m.EWardrobeComponent,
           ),
       },
       {
         path: 'recommendations',
         loadComponent: () =>
-          import('./features/recommendations/recommendations.component').then(
-            (m) => m.RecommendationsComponent
+          import('./features/components/recommendations/recommendations.component').then(
+            (m) => m.RecommendationsComponent,
           ),
       },
       {
         path: 'weather',
         loadComponent: () =>
-          import('./features/weather/weather.component').then(
-            (m) => m.WeatherComponent
+          import('./features/components/weather/weather.component').then(
+            (m) => m.WeatherComponent,
           ),
       },
     ],

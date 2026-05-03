@@ -4,6 +4,9 @@ import java.time.LocalDateTime;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -21,6 +24,8 @@ public class ImageAttribute {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long attributeId;
 
+	private String primaryColor;
+	private String secondaryColor;
 	private String fabricType;
 	private Long confidenceScor;
 	private String detectedBy;
@@ -31,20 +36,41 @@ public class ImageAttribute {
 
 	@ManyToOne
 	@JoinColumn(name = "image_id")
+	@JsonIgnore
 	private ClothImage clothImage;
 
 	public ImageAttribute() {
 	}
 
-	public ImageAttribute(Long attributeId, String fabricType, Long confidenceScor, String detectedBy,
-			LocalDateTime createdAt, ClothImage clothImage) {
+
+	public ImageAttribute(Long attributeId, String primaryColor, String secondaryColor, String fabricType,
+			Long confidenceScor, String detectedBy, LocalDateTime createdAt, ClothImage clothImage) {
 		super();
 		this.attributeId = attributeId;
+		this.primaryColor = primaryColor;
+		this.secondaryColor = secondaryColor;
 		this.fabricType = fabricType;
 		this.confidenceScor = confidenceScor;
 		this.detectedBy = detectedBy;
 		this.createdAt = createdAt;
 		this.clothImage = clothImage;
+	}
+
+
+	public String getPrimaryColor() {
+		return primaryColor;
+	}
+
+	public void setPrimaryColor(String primaryColor) {
+		this.primaryColor = primaryColor;
+	}
+
+	public String getSecondaryColor() {
+		return secondaryColor;
+	}
+
+	public void setSecondaryColor(String secondaryColor) {
+		this.secondaryColor = secondaryColor;
 	}
 
 	public Long getAttributeId() {

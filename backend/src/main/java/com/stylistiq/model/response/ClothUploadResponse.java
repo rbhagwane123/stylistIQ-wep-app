@@ -1,15 +1,44 @@
 package com.stylistiq.model.response;
 
-import com.stylistiq.model.entity.Wardrobe;
-
 public class ClothUploadResponse {
-	Wardrobe wardrobe;
-	String message;
+	Long wardrobeId;
+	Long userId;
+	Long clothId;
 
-	public ClothUploadResponse(Wardrobe wardrobe, String message) {
+	String message;
+	String categoryName;
+
+	public ClothUploadResponse(Long wardrobeId, Long userId, Long clothId, String message, String categoryName) {
 		super();
-		this.wardrobe = wardrobe;
+		this.wardrobeId = wardrobeId;
+		this.userId = userId;
+		this.clothId = clothId;
 		this.message = message;
+		this.categoryName = categoryName;
+	}
+
+	public Long getWardrobeId() {
+		return wardrobeId;
+	}
+
+	public void setWardrobeId(Long wardrobeId) {
+		this.wardrobeId = wardrobeId;
+	}
+
+	public Long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
+
+	public Long getClothId() {
+		return clothId;
+	}
+
+	public void setClothId(Long clothId) {
+		this.clothId = clothId;
 	}
 
 	public String getMessage() {
@@ -20,12 +49,12 @@ public class ClothUploadResponse {
 		this.message = message;
 	}
 
-	public Wardrobe getWardrobe() {
-		return wardrobe;
+	public String getCategoryName() {
+		return categoryName;
 	}
 
-	public void setWardrobe(Wardrobe wardrobe) {
-		this.wardrobe = wardrobe;
+	public void setCategoryName(String categoryName) {
+		this.categoryName = categoryName;
 	}
 
 }

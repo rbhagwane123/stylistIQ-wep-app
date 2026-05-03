@@ -1,0 +1,59 @@
+<div class="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
+    <div class="bg-white w-[420px] rounded-xl shadow-lg p-6 relative">
+
+        <!-- Close (disabled during operations) -->
+        <button class="absolute top-3 right-3 text-xl cursor-pointer disabled:opacity-40" (click)="close.emit()"
+            [disabled]="isProcessing || isUploading">
+            ✕
+        </button>
+
+        <h2 class="text-xl font-semibold mb-4 text-center">
+            Upload Outfit Image
+        </h2>
+
+        <!-- Upload Area -->
+        <div *ngIf="!previewUrl && !isProcessing"
+            class="border-2 border-dashed rounded-lg p-6 text-center cursor-pointer hover:border-[#FF7F50]"
+            (click)="fileInput.click()">
+            <p class="text-gray-500">Click to upload image</p>
+            <input type="file" accept="image/*" hidden #fileInput (change)="onFileSelected($event)" />
+        </div>
+
+        <!-- Processing State (Background Removal) -->
+        <div *ngIf="isProcessing" class="flex flex-col items-center gap-4 py-10">
+            <ngx-spinner bdColor="rgba(0,0,0,0)" size="medium" color="#FF7F50" type="ball-spin-clockwise">
+            </ngx-spinner>
+            <p class="text-gray-600 text-sm">Processing image…</p>
+        </div>
+
+        <!-- Preview -->
+        <div *ngIf="previewUrl && !isProcessing" class="space-y-4">
+            <img [src]="previewUrl" class="w-full h-56 object-contain rounded-md border" />
+
+            <!-- Upload Progress -->
+            <div *ngIf="isUploading" class="space-y-2">
+                <div class="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
+                    <div class="bg-[#FF7F50] h-2 transition-all" [style.width.%]="uploadProgress">
+                    </div>
+                </div>
+                <p class="text-sm text-gray-600 text-center">
+                    Uploading… {{ uploadProgress }}%
+                </p>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex justify-between gap-3">
+                <button class="flex-1 bg-gray-200 py-2 rounded-md disabled:opacity-50" (click)="removeImage()"
+                    [disabled]="isUploading">
+                    Remove
+                </button>
+
+                <button class="flex-1 bg-[#FF7F50] text-white py-2 rounded-md disabled:opacity-50"
+                    (click)="uploadImage()" [disabled]="isUploading">
+                    Upload Image
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>
